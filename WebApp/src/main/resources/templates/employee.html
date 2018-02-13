@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Handling Form Submission</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
+</head>
+<body>
+<div class="container">
+    <br/>
+    <h4 class="page-header">Employee Form v1.0</h4>
+    <hr/>
+    <form action="#" th:action="@{/employee}" th:object="${employee}" method="post">
+        <p>Name → <input class="form-control" type="text" th:field="*{name}"/>
+            <small class="bg-dark text-white" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name should have
+                minimum of 2 and maximum of 30 alphanumeric characters!
+            </small>
+        </p>
+        <p>Age → <input class="form-control" type="text" th:field="*{age}"/></p>
+        <p>Gender → <input class="form-control" type="text" th:field="*{gender}"/></p>
+        <p>Aadhar → <input class="form-control" type="text" th:field="*{aadhar}"/>
+            <small id="aadharHelp" class="form-text text-muted">We'll never share your aadhar with anyone else.</small>
+            <small class="bg-dark text-white" th:if="${#fields.hasErrors('aadhar')}" th:errors="*{aadhar}"><strong>Warning!</strong>
+                Aadhar should contain exactly 15 alphanumeric characters!
+            </small>
+        </p>
+        <p>Pan → <input class="form-control" type="text" th:field="*{pan}"/>
+            <small id="panHelp" class="form-text text-muted">We'll never share your pan with anyone else.</small>
+            <small class="bg-dark text-white" th:if="${#fields.hasErrors('pan')}" th:errors="*{pan}">
+                <strong>Warning!</strong> Pan should contain exactly 10 alphanumeric characters!
+            </small>
+        </p>
+        <p>Phone Number → <input class="form-control" type="text" th:field="*{phoneNumber}"/>
+            <small class="bg-dark text-white" th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}">
+                <strong>Warning!</strong> Phone Number should contain exactly 10 digits!
+            </small>
+        </p>
+        <p>
+            <button class="btn btn-dark" type="submit">Submit</button>
+            <button class="btn btn-dark" type="reset">Reset</button>
+        </p>
+    </form>
+    <br/>
+    <div class="container">
+        <form th:action="@{/login}" method="post">
+            <p align="right"><button class="btn btn-light" type="submit">Sign Out</button></p>
+        </form>
+    </div>
+</div>
+</body>
+</html>

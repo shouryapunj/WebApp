@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Welcome to GG !</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    </link>
+</head>
+<body>
+<div class="container">
+    <br/>
+    <h4 class="page-header" align="center"><strong> → GG ← </strong></h4>
+    <hr/>
+    <br/>
+    <div class="card">
+        <div class="card-header">
+            About Us
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">GG</h5>
+            <p class="card-text">GG stands for good game, it is generally used after a game ends. Also ggwp is used
+                which stands for good game well played.</p>
+        </div>
+    </div>
+    <br/><br/>
+    <div class="card">
+        <div class="card-header">
+            Spring
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Spring Boot</h5>
+            <p class="card-text">This website is made using Spring Boot and templates have been made using
+               thymeleaf.</p>
+        </div>
+    </div>
+    <br/><br/>
+    <div class="card">
+        <div class="card-header">
+            Try Us
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Start here</h5>
+            <p class="card-text">Try logging in and using the GG services
+                <form th:action="@{/employee}" method="get">
+            <p align="right">
+                <button class="btn btn-dark" type="submit">Log In</button>
+            </p>
+            </form>
+            </p>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Profile Created</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    </link>
+</head>
+<body>
+<div class="container">
+    <br/>
+    <h3 class="page-header">Your profile has been created !</h3>
+    <hr/>
+    <p>Check your mail for your login details.</p>
+    <form th:action="@{/}" method="get">
+        <button align="right" class="btn btn-light" type="submit">Go back to Home</button>
+    </form>
+</div>
+</body>
+</html>
