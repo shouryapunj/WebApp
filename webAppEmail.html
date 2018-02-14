@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8"/>
+    <title>WebApp Home</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    </link>
+</head>
+<body>
+<div class="container">
+    <br/>
+    <h4 class="page-header">WebApp Email</h4>
+    <hr/>
+    <form action="#" th:action="@{/webAppEmail}" th:object="${email}" method="post">
+        <p>From→ <input class="form-control" type="text" th:field="*{from}"/>
+            <small class="bg-dark text-white" th:if="${#fields.hasErrors('from')}" th:errors="*{from}">Should not be null
+            </small>
+        </p>
+        <p>To → <input class="form-control" type="text" th:field="*{to}"/>
+            <small class="bg-dark text-white" th:if="${#fields.hasErrors('to')}" th:errors="*{to}">Should not be null
+            </small>
+        </p>
+        <p>Subject → <input class="form-control" type="text" th:field="*{subject}"/>
+            <small class="bg-dark text-white" th:if="${#fields.hasErrors('subject')}" th:errors="*{subject}">Should not be null
+            </small>
+        </p>
+        <p>Content → <input class="form-control" type="text" th:field="*{content}"/>
+            <small id="aadharHelp" class="form-text text-muted">We'll never share your message with anyone else.</small>
+            <small class="bg-dark text-white" th:if="${#fields.hasErrors('content')}" th:errors="*{content}">
+               Should not be null.
+            </small>
+        </p>
+        <p>
+            <button class="btn btn-dark" type="submit">Submit</button>
+            <button class="btn btn-dark" type="reset">Reset</button>
+        </p>
+    </form>
+    <br/><br/>
+    <div class="container">
+        <form th:action="@{/home}" method="get">
+            <p align="right"><button class="btn btn-light" type="submit">Go back</button></p>
+        </form>
+    </div>
+</div>
+</body>
+</html>

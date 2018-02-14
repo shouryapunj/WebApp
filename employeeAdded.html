@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <title>Handled Form</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
+</head>
+<body>
+<div class="container">
+    <br/>
+    <div class="container">
+        <h5 class="page-header"><strong>Success! </strong>Your entry was recorded!</h5>
+    </div>
+    <hr/>
+    <table class="table">
+        <thead class="thead-light">
+        <th>Name</th>
+        <th>Age</th>
+        <th>Gender</th>
+        <th>Aadhar</th>
+        <th>Pan</th>
+        <th>Phone Number</th>
+        </thead>
+        <tbody>
+        <tr>
+            <td><p th:text="${employee.name}"/></td>
+            <td><p th:text="${employee.age}"/></td>
+            <td><p th:text="${employee.gender}"/></td>
+            <td><p th:text="${employee.aadhar}"/></td>
+            <td><p th:text="${employee.pan}"/></td>
+            <td><p th:text="${employee.phoneNumber}"/></td>
+        </tr>
+        </tbody>
+    </table>
+    <hr/>
+    <a class="a" href="/employee">
+        <button type="submit" onsubmit="/employee" class="btn btn-dark">Add another employee</button>&nbsp;&nbsp;
+    </a>
+    <form th:action="@{/login}" method="post">
+        <p align="right"><button class="btn btn-light" type="submit">Sign Out</button></p>
+    </form>
+    <br/>
+</div>
+</body>
+</html>
