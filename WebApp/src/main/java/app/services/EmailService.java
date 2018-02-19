@@ -30,7 +30,19 @@ public class EmailService implements ApplicationRunner {
     @Autowired
     private Profile profile;
 
+    @Autowired
+    private Email email;
+
     public void sendSimpleEmail(final Email email) {
+        SimpleMailMessage message = new SimpleMailMessage();
+        message.setSubject(email.getSubject());
+        message.setFrom(email.getFrom());
+        message.setTo(email.getTo());
+        message.setText(email.getContent());
+        emailSender.send(message);
+    }
+
+    public void sendEmailUsingWebAppEmail() {
         SimpleMailMessage message = new SimpleMailMessage();
         message.setSubject(email.getSubject());
         message.setFrom(email.getFrom());

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8"/>
+    <title>WebApp Home</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    </link>
+</head>
+<body>
+<div class="container" th:object="${user}">
+    <!--<div class="container-fluid">-->
+    <br />
+    <h4 class="page-header" align="center"> → GG WebApp ←
+        <!--<p th:text="*{loginUsername}"></p>-->
+    </h4>
+    <hr />
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-header">
+                    GG Team
+                </div>
+                <div class="card-body">
+                    <h4 class="card-title">New Employee</h4>
+                    <p class="card-text">Add new employee to our team.</p>
+                    <form th:action="@{/employee}" method="get">
+                        <button class="btn btn-light" type="submit">Add</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-header">
+                    GG Team
+                </div>
+                <div class="card-body">
+                    <h4 class="card-title">Existing Team</h4>
+                    <p class="card-text">View existing employees.</p>
+                    <form th:action="@{/showEmpList}" method="get">
+                        <button class="btn btn-light" type="submit">View</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-header">
+                    GG App
+                </div>
+                <div class="card-body">
+                    <h4 class="card-title">WebApp Chat</h4>
+                    <p class="card-text">Personalised chat for our gg team.</p>
+                    <form th:action="@{/webAppChat}" method="get">
+                        <button class="btn btn-light" type="submit">Go</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-header">
+                    GG App
+                </div>
+                <div class="card-body">
+                    <h4 class="card-title">WebApp Email</h4>
+                    <p class="card-text">Personalised email sender for our gg team.</p>
+                    <form th:action="@{/webAppEmail}" method="get">
+                        <button class="btn btn-light" type="submit">Go</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br/><br/>
+<div class="container">
+    <form th:action="@{/login}" method="post">
+        <p align="right"><button class="btn btn-light" type="submit">Sign Out</button></p>
+    </form>
+</div>
+</body>
+</html>

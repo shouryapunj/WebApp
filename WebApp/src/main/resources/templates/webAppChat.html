@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>WebApp Chat</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="/webjars/sockjs-client/sockjs.min.js"></script>
+    <script src="/webjars/stomp-websocket/stomp.min.js"></script>
+    <script type="text/javascript" src="/appChat.js" />
+</head>
+<body>
+<noscript><h2 style="color: #ff0000">Seems your browser doesn't support Javascript! Websocket relies on Javascript being
+    enabled. Please enable
+    Javascript and reload this page!</h2></noscript>
+<div class="container">
+    <br/>
+    <h4 class="page-header" align="center"><strong> → WebApp Chat ← </strong></h4>
+    <hr/>
+    <br/>
+
+<div class="card" id="main-content">
+    <div class="card-header">
+        Cancer chat
+    </div>
+
+    <div class="card-body">
+        <table class="table" id="conversation">
+            <thead>
+            <tr>
+            </tr>
+            </thead>
+            <tbody id="onlineX"></tbody>
+        </table>
+    </div>
+    <br />
+    <br />
+    <div class="card-body">
+        <div class="container">
+                <div class="container">
+                    <p for="message">
+                        Enter message →
+                    <!--<input type="text" id="userName" class="form-control" placeholder="Enter name.." />&nbsp;-->
+                        <input type="text" id="message" class="form-control" placeholder="Enter text..." /> </p>
+
+                        <button id="send" class="btn btn-dark" type="submit">Send</button>
+                    <p align="right">
+                        <button id="connect" class="btn btn-light" type="submit">Connect</button>
+                        &nbsp;
+                        <button id="disconnect" class="btn btn-light" type="submit" disabled="disabled">Disconnect</button></p>
+
+                </div>
+        </div>
+    </div>
+</div>
+</div>
+</body>
+</html>
