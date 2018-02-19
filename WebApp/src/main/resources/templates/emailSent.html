@@ -10,11 +10,18 @@
     </link>
 </head>
 <body>
-<div class="container">
+<div class="container" th:object="${email}">
     <br/>
     <h3 class="page-header">Success! Email Sent</h3>
+    <hr />
+    <p>To→ <p th:text="${email.to}"></p></p>
+    <p>Subject → <p th:text="${email.subject}"></p></p>
+    <p>Message → <p th:text="${email.content}"></p></p>
     <hr/>
-    <p>See sending mail using Spring Boot is so easy!</p>
+    <p>See sending mail using WebApp Email is so easy!</p>
+    <form th:action="@{/home}" method="get">
+        <p align="right"><button class="btn btn-light" type="submit">Go back to Home</button></p>
+    </form>
 </div>
 </body>
 </html>

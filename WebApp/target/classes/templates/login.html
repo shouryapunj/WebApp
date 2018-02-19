@@ -20,13 +20,16 @@
         <div class="card-group">
             <div class="card">
                 <div class="card-body">
+                    <!--<form th:action="@{/login}" th:object="${loginUser}" method="post">-->
+                    <!--<form th:action="@{/login}" th:object="${user}" method="post">-->
                     <form th:action="@{/login}" method="post">
                         <p>
                             <label> User Name →
-                                <input class="form-control" type="text" name="username"/> </label>
+                                <!--<input class="form-control" type="text" th:field="*{loginUsername}" /> </label>-->
+                                <input class="form-control" type="text"  name="username" /> </label>
                             <br/>
                             <label> Password →
-                                <input class="form-control" type="password" name="password"/> </label> <br/><br/>
+                                <input class="form-control" type="password" name="password" /> </label> <br/><br/>
                             <button class="btn btn-dark" type="submit">Sign In</button>
                         </p>
                     </form>

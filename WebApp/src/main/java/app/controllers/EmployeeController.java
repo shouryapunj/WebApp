@@ -2,6 +2,7 @@ package app.controllers;
 
 import app.dto.Employee;
 import app.dto.Enquiry;
+import app.dto.LoginUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,26 +28,20 @@ public class EmployeeController {
         return "index";
     }
 
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public String loginForm(Model model) {
-        model.addAttribute("enquiry", new Enquiry());
-        return "login";
-    }
-
-    @GetMapping("/employee")
+    @RequestMapping(value = "/employee", method = RequestMethod.GET)
     public String employeeForm(Model model) {
         model.addAttribute("employee", new Employee());
         return "employee";
     }
 
-    @PostMapping("/employee")
+    @RequestMapping(value = "/employee", method = RequestMethod.POST)
     public String employeeSubmit(@ModelAttribute Employee employee, @Valid Employee employeeCheck, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "employee";
         }
         this.employee = employee;
         employeeArrayList.add(employee);
-        return "result";
+        return "employeeAdded";
     }
 
 
@@ -56,8 +51,4 @@ public class EmployeeController {
         return "showEmpList";
     }
 
-    @RequestMapping(value = "/jsonEmpList", method = RequestMethod.GET)
-    public ArrayList<Employee> jsonEmpList() {
-        return employeeArrayList;
-    }
 }
