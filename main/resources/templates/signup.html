@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    </link>
+</head>
+<body>
+<div class="container">
+    <br/>
+    <h4 class="page-header">Profile Creation Form</h4>
+    <hr/>
+    <form action="#" th:action="@{/signup}" th:object="${profile}" method="post">
+        <p>Name →
+            <input class="form-control" type="text" th:field="*{name}"/>
+            <small class="bg-dark text-white" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name should have
+                minimum of 2 and maximum of 30 alphanumeric characters!
+            </small>
+        </p>
+        <p>Email →
+            <input class="form-control" type="email" th:field="*{email}"/></p>
+        <p>Username →
+            <input class="form-control" type="text" th:field="*{username}"/>
+            <small id="panHelp" class="core-text text-muted">We'll never share your username with anyone else.</small>
+        </p>
+        <br/>
+        <p>
+            <button class="btn btn-dark" type="submit">Submit</button>
+            <button class="btn btn-dark" type="reset">Reset</button>
+        </p>
+    </form>
+    <br/>
+    <form th:action="@{/}" method="get">
+        <p align="right">
+            <button class="btn btn-dark" type="submit">Go back to Home</button>
+        </p>
+    </form>
+</div>
+</body>
+</html>

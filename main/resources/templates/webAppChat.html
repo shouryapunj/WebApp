@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+    <title>WebApp Chat</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+    <script src="/webjars/jquery/jquery.min.js"></script>
+    <script src="/webjars/sockjs-client/sockjs.min.js"></script>
+    <script src="/webjars/stomp-websocket/stomp.min.js"></script>
+    <script type="text/javascript" src="/webAppChat.js"></script>
+</head>
+<body>
+<noscript><h2 style="color: #ff0000">Seems your browser doesn't support Javascript! Websocket relies on Javascript being
+    enabled. Please enable
+    Javascript and reload this page!</h2></noscript>
+<div class="container">
+    <br/>
+    <h4 class="page-header" align="center"><strong> → WebApp Chat ← </strong></h4>
+    <hr/>
+    <br/>
+</div>
+    <div class="container" id="main-content">
+
+        <div class="row">
+            <table class="table" id="conversation">
+                <thead>
+                <tr>
+                    <th align="center">Chat</th>
+                </tr>
+                </thead>
+                <tbody id="onlineX"></tbody>
+            </table>
+        </div>
+        <br />
+        <br />
+        <div class="row">
+            <div class="col-md-6">
+                <form class="form-inline">
+                    <div class="form-group">
+                        <p>
+                        Enter message here →
+                        <input type="text" id="message" class="form-control" placeholder="Enter text..." />
+                        &nbsp;
+                        <button id="send" class="btn btn-dark" type="submit">Send</button>
+                        </p>
+                    </div>
+                </form>
+            </div>
+            <br />
+            <div class="col-md-6">
+                <form class="form-inline">
+                    <div class="form-group">
+                        Connection status →
+                        <button id="connect" class="btn btn-light" type="submit">Connect</button>&nbsp;
+                        <button id="disconnect" class="btn btn-light" type="submit" disabled="disabled">Disconnect</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>

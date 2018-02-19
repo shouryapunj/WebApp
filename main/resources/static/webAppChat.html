@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8"/>
+    <title>WebApp Chat</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="/webjars/jquery/jquery.min.js"></script>
+    <script src="/webjars/sockjs-client/sockjs.min.js"></script>
+    <script src="/webjars/stomp-websocket/stomp.min.js"></script>
+    </link>
+    <script src="/app.js"></script>
+</head>
+<body>
+    <br/>
+    <h4 class="page-header" align="center"><strong> → WebApp Chat ← </strong></h4>
+    <hr/>
+    <br/>
+    <div class="container" id="main-content">
+        <div class="row">
+            <div class="col-md-6">
+                <form class="form-inline">
+                    <div class="form-group">
+                        <label for="connect">Connect → </label>
+                        <button id="connect" class="btn btn-dark" type="submit">Connect</button>
+                        <button id="disconnect" class="btn btn-dark" type="submit" disabled="disabled">Disconnect</button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-6">
+                <form class="form-inline">
+                    <div class="form-group">
+                        <label for="message">Enter message here → </label>
+                        <input type="text" id="message" class="form-control" placeholder="Enter text..." />
+                        <button id="send" class="btn btn-dark" type="submit">Send</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <table class="table" id="conversation">
+                <thead>
+                    <tr>
+                        <th>Chat</th>
+                    </tr>
+                </thead>
+                <tbody id="onlineX"></tbody>
+            </table>
+        </div>
+    </div>
+
+</body>
+</html>

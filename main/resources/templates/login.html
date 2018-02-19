@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Welcome | Login Page</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    </link>
+</head>
+<body>
+<div class="container">
+    <br/>
+    <h4 class="page-header">Login Page</h4>
+    <hr/>
+    <div th:if="${param.error}"></div>
+    <div th:if="${param.logout}"></div>
+    <div class="container">
+        <div class="card-group">
+            <div class="card">
+                <div class="card-body">
+                    <!--<form th:action="@{/login}" th:object="${loginUser}" method="post">-->
+                    <!--<form th:action="@{/login}" th:object="${user}" method="post">-->
+                    <form th:action="@{/login}" method="post">
+                        <p>
+                            <label> User Name →
+                                <!--<input class="form-control" type="text" th:field="*{loginUsername}" /> </label>-->
+                                <input class="form-control" type="text"  name="username" /> </label>
+                            <br/>
+                            <label> Password →
+                                <input class="form-control" type="password" name="password" /> </label> <br/><br/>
+                            <button class="btn btn-dark" type="submit">Sign In</button>
+                        </p>
+                    </form>
+                    <form th:action="@{/signup}" method="get">
+                        <p>Don't have profile, sign up here →
+                            <button class="btn btn-light" type="submit">Create Profile</button>
+                        </p>
+                    </form>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <form action="#" th:action="@{/thankyou}" th:object="${enquiry}" method="post">
+                        <p>
+                        <h4 class="card-title">New at GG ?</h4>
+                        <p class="card-text">Enter your email here and our team shall contact you →
+                            <input class="form-control" th:field="*{email}" type="email" />
+                            <small class="bg-dark text-white" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">
+                                <strong>Warning!</strong> Email should not be null!
+                            </small>
+                        </p>
+                        <button class="btn btn-light" type="submit">Send</button>
+                        <br/><br/>
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
